@@ -40,12 +40,6 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
     return self;
 }
 
-- (void)dealloc
-{
-    [self.downloadTimer invalidate];
-    self.downloadTimer = nil;
-}
-
 #pragma mark - NSApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
