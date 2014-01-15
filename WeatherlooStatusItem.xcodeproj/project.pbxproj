@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B35984F41886D5D00080D02F /* UWWReading.m in Sources */ = {isa = PBXBuildFile; fileRef = B35984F31886D5D00080D02F /* UWWReading.m */; };
 		B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B35984F71886E2550080D02F /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3A8825E1886062600606019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A8825D1886062600606019 /* Cocoa.framework */; };
 		B3A882681886062600606019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3A882661886062600606019 /* InfoPlist.strings */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B35984F21886D5D00080D02F /* UWWReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWWReading.h; sourceTree = "<group>"; };
+		B35984F31886D5D00080D02F /* UWWReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWWReading.m; sourceTree = "<group>"; };
 		B35984F61886E2550080D02F /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = "<group>"; };
 		B35984F71886E2550080D02F /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = "iso-8601-date-formatter/ISO8601DateFormatter.m"; sourceTree = "<group>"; };
 		B3A8825A1886062600606019 /* WeatherlooStatusItem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherlooStatusItem.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +133,8 @@
 			children = (
 				B3A8826F1886062600606019 /* UWWAppDelegate.h */,
 				B3A882701886062600606019 /* UWWAppDelegate.m */,
+				B35984F21886D5D00080D02F /* UWWReading.h */,
+				B35984F31886D5D00080D02F /* UWWReading.m */,
 				B3A882721886062600606019 /* MainMenu.xib */,
 				B3A882641886062600606019 /* Supporting Files */,
 			);
@@ -269,6 +274,7 @@
 				B3A882711886062600606019 /* UWWAppDelegate.m in Sources */,
 				B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */,
 				B3A8826A1886062600606019 /* main.m in Sources */,
+				B35984F41886D5D00080D02F /* UWWReading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
