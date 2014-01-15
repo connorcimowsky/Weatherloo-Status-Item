@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B35984F71886E2550080D02F /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3A8825E1886062600606019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A8825D1886062600606019 /* Cocoa.framework */; };
 		B3A882681886062600606019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3A882661886062600606019 /* InfoPlist.strings */; };
 		B3A8826A1886062600606019 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A882691886062600606019 /* main.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B35984F61886E2550080D02F /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = "<group>"; };
+		B35984F71886E2550080D02F /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = "iso-8601-date-formatter/ISO8601DateFormatter.m"; sourceTree = "<group>"; };
 		B3A8825A1886062600606019 /* WeatherlooStatusItem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherlooStatusItem.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A8825D1886062600606019 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		B3A882601886062600606019 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -73,9 +76,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B35984F51886E2150080D02F /* ISO8601DateFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				B35984F61886E2550080D02F /* ISO8601DateFormatter.h */,
+				B35984F71886E2550080D02F /* ISO8601DateFormatter.m */,
+			);
+			name = ISO8601DateFormatter;
+			sourceTree = "<group>";
+		};
 		B3A882511886062600606019 = {
 			isa = PBXGroup;
 			children = (
+				B35984F51886E2150080D02F /* ISO8601DateFormatter */,
 				B3A882631886062600606019 /* WeatherlooStatusItem */,
 				B3A882811886062600606019 /* WeatherlooStatusItemTests */,
 				B3A8825C1886062600606019 /* Frameworks */,
@@ -254,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A882711886062600606019 /* UWWAppDelegate.m in Sources */,
+				B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */,
 				B3A8826A1886062600606019 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
