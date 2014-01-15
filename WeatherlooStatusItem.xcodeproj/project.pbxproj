@@ -88,6 +88,24 @@
 			name = ISO8601DateFormatter;
 			sourceTree = "<group>";
 		};
+		B35984F9188717D30080D02F /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B3A8826F1886062600606019 /* UWWAppDelegate.h */,
+				B3A882701886062600606019 /* UWWAppDelegate.m */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		B35984FA188717D90080D02F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B35984F21886D5D00080D02F /* UWWReading.h */,
+				B35984F31886D5D00080D02F /* UWWReading.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		B3A882511886062600606019 = {
 			isa = PBXGroup;
 			children = (
@@ -131,11 +149,8 @@
 		B3A882631886062600606019 /* WeatherlooStatusItem */ = {
 			isa = PBXGroup;
 			children = (
-				B3A8826F1886062600606019 /* UWWAppDelegate.h */,
-				B3A882701886062600606019 /* UWWAppDelegate.m */,
-				B35984F21886D5D00080D02F /* UWWReading.h */,
-				B35984F31886D5D00080D02F /* UWWReading.m */,
-				B3A882721886062600606019 /* MainMenu.xib */,
+				B35984F9188717D30080D02F /* App Delegate */,
+				B35984FA188717D90080D02F /* Model */,
 				B3A882641886062600606019 /* Supporting Files */,
 			);
 			path = WeatherlooStatusItem;
@@ -144,6 +159,7 @@
 		B3A882641886062600606019 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3A882721886062600606019 /* MainMenu.xib */,
 				B3A882751886062600606019 /* Images.xcassets */,
 				B3A882651886062600606019 /* WeatherlooStatusItem-Info.plist */,
 				B3A882661886062600606019 /* InfoPlist.strings */,
