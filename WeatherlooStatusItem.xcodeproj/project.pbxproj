@@ -131,7 +131,6 @@
 				B3A8826F1886062600606019 /* UWWAppDelegate.h */,
 				B3A882701886062600606019 /* UWWAppDelegate.m */,
 				B3A882721886062600606019 /* MainMenu.xib */,
-				B3A882751886062600606019 /* Images.xcassets */,
 				B3A882641886062600606019 /* Supporting Files */,
 			);
 			path = WeatherlooStatusItem;
@@ -140,6 +139,7 @@
 		B3A882641886062600606019 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B3A882751886062600606019 /* Images.xcassets */,
 				B3A882651886062600606019 /* WeatherlooStatusItem-Info.plist */,
 				B3A882661886062600606019 /* InfoPlist.strings */,
 				B3A882691886062600606019 /* main.m */,
@@ -479,6 +479,7 @@
 				B3A8828D1886062600606019 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3A8828E1886062600606019 /* Build configuration list for PBXNativeTarget "WeatherlooStatusItemTests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +488,7 @@
 				B3A882901886062600606019 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
