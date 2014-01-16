@@ -20,6 +20,7 @@
 		B3A8827E1886062600606019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A8825D1886062600606019 /* Cocoa.framework */; };
 		B3A882861886062600606019 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3A882841886062600606019 /* InfoPlist.strings */; };
 		B3A882881886062600606019 /* WeatherlooStatusItemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A882871886062600606019 /* WeatherlooStatusItemTests.m */; };
+		B3E50242188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E50241188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		B3A882831886062600606019 /* WeatherlooStatusItemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WeatherlooStatusItemTests-Info.plist"; sourceTree = "<group>"; };
 		B3A882851886062600606019 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B3A882871886062600606019 /* WeatherlooStatusItemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeatherlooStatusItemTests.m; sourceTree = "<group>"; };
+		B3E50240188898D800EAE081 /* UWWReading+UWWFormattingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UWWReading+UWWFormattingAdditions.h"; sourceTree = "<group>"; };
+		B3E50241188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UWWReading+UWWFormattingAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +105,8 @@
 			children = (
 				B35984F21886D5D00080D02F /* UWWReading.h */,
 				B35984F31886D5D00080D02F /* UWWReading.m */,
+				B3E50240188898D800EAE081 /* UWWReading+UWWFormattingAdditions.h */,
+				B3E50241188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				B3A882711886062600606019 /* UWWAppDelegate.m in Sources */,
 				B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */,
 				B3A8826A1886062600606019 /* main.m in Sources */,
+				B3E50242188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m in Sources */,
 				B35984F41886D5D00080D02F /* UWWReading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
