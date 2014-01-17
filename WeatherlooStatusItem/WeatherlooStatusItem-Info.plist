@@ -30,6 +30,8 @@
 	<string>Copyright © 2014 Connor Cimowsky. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
+	<key>LSUIElement</key>
+	<string>YES</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>
