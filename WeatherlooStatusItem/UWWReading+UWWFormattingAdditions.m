@@ -11,6 +11,8 @@
 
 @implementation UWWReading (UWWFormattingAdditions)
 
+#pragma mark - Public Methods
+
 - (NSString *)formattedObservationTime
 {
     if (!self.observationTime) {
