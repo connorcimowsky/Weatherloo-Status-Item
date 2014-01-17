@@ -113,7 +113,18 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
         [menu addItemWithTitle:conditionString action:NULL keyEquivalent:@""];
     }
     
+    if (formattedWeatherConditionStrings) {
+        [menu addItem:[NSMenuItem separatorItem]];
+    }
+    
+    [menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
+    
     self.statusItem.menu = menu;
+}
+
+- (void)quitPressed
+{
+    [[NSApplication sharedApplication] terminate:self];
 }
 
 @end
