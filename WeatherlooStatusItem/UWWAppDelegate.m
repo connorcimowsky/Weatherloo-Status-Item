@@ -21,6 +21,7 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property (nonatomic, strong) UWWReading *currentReading;
 @property (nonatomic, strong) NSStatusItem *statusItem;
+@property (nonatomic, strong) NSMenu *menu;
 
 @end
 
@@ -46,6 +47,12 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
+    self.menu = [[NSMenu alloc] init];
+    
+    self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    self.statusItem.highlightMode = YES;
+    self.statusItem.menu = self.menu;
+    
     self.downloadTimer = [NSTimer scheduledTimerWithTimeInterval:UWWUpdateInterval
                                                           target:self
                                                         selector:@selector(requestCurrentReading)
@@ -86,40 +93,32 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
 
 - (void)updateStatusItem
 {
-    if (!self.currentReading) {
-        self.statusItem = nil;
-        return;
+    if (self.currentReading.temperature) {
+        self.statusItem.title = [NSString stringWithFormat:@"%@ ºC", [NSNumberFormatter localizedStringFromNumber:self.currentReading.temperature numberStyle:NSNumberFormatterDecimalStyle]];
+    } else {
+        self.statusItem.title = @"-- ºC";
     }
     
-    if (!self.statusItem) {
-        self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-        self.statusItem.highlightMode = YES;
-    }
+    [self.menu removeAllItems];
     
-    self.statusItem.title = [NSString stringWithFormat:@"%@ ºC", [NSNumberFormatter localizedStringFromNumber:self.currentReading.temperature numberStyle:NSNumberFormatterDecimalStyle]];
-    
-    NSMenu *menu = [[NSMenu alloc] init];
-    
-    [menu addItemWithTitle:@"Refresh" action:@selector(requestCurrentReading) keyEquivalent:@""];
+    [self.menu addItemWithTitle:@"Refresh" action:@selector(requestCurrentReading) keyEquivalent:@""];
     
     if (self.currentReading.observationTime) {
-        [menu addItemWithTitle:[self.currentReading formattedObservationTime] action:NULL keyEquivalent:@""];
+        [self.menu addItemWithTitle:[self.currentReading formattedObservationTime] action:NULL keyEquivalent:@""];
     }
     
-    [menu addItem:[NSMenuItem separatorItem]];
+    [self.menu addItem:[NSMenuItem separatorItem]];
     
     NSArray *formattedWeatherConditionStrings = [self.currentReading formattedWeatherConditionStrings];
     for (NSString *conditionString in formattedWeatherConditionStrings) {
-        [menu addItemWithTitle:conditionString action:NULL keyEquivalent:@""];
+        [self.menu addItemWithTitle:conditionString action:NULL keyEquivalent:@""];
     }
     
     if (formattedWeatherConditionStrings) {
-        [menu addItem:[NSMenuItem separatorItem]];
+        [self.menu addItem:[NSMenuItem separatorItem]];
     }
     
-    [menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
-    
-    self.statusItem.menu = menu;
+    [self.menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
 }
 
 - (void)quitPressed
