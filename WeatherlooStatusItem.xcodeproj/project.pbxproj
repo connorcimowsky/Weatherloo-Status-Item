@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B326651C188A054000BBE8D7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B326651B188A054000BBE8D7 /* Reachability.m */; };
+		B326651E188A05EC00BBE8D7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B326651D188A05EC00BBE8D7 /* SystemConfiguration.framework */; };
 		B35984F41886D5D00080D02F /* UWWReading.m in Sources */ = {isa = PBXBuildFile; fileRef = B35984F31886D5D00080D02F /* UWWReading.m */; };
 		B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = B35984F71886E2550080D02F /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B3A8825E1886062600606019 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A8825D1886062600606019 /* Cocoa.framework */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B326651A188A054000BBE8D7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		B326651B188A054000BBE8D7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		B326651D188A05EC00BBE8D7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B35984F21886D5D00080D02F /* UWWReading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UWWReading.h; sourceTree = "<group>"; };
 		B35984F31886D5D00080D02F /* UWWReading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UWWReading.m; sourceTree = "<group>"; };
 		B35984F61886E2550080D02F /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = "<group>"; };
@@ -67,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A8825E1886062600606019 /* Cocoa.framework in Frameworks */,
+				B326651E188A05EC00BBE8D7 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3266519188A052A00BBE8D7 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				B326651A188A054000BBE8D7 /* Reachability.h */,
+				B326651B188A054000BBE8D7 /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
 		B35984F51886E2150080D02F /* ISO8601DateFormatter */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +129,7 @@
 		B3A882511886062600606019 = {
 			isa = PBXGroup;
 			children = (
+				B3266519188A052A00BBE8D7 /* Reachability */,
 				B35984F51886E2150080D02F /* ISO8601DateFormatter */,
 				B3A882631886062600606019 /* WeatherlooStatusItem */,
 				B3A882811886062600606019 /* WeatherlooStatusItemTests */,
@@ -135,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B3A8825D1886062600606019 /* Cocoa.framework */,
+				B326651D188A05EC00BBE8D7 /* SystemConfiguration.framework */,
 				B3A8827C1886062600606019 /* XCTest.framework */,
 				B3A8825F1886062600606019 /* Other Frameworks */,
 			);
@@ -299,6 +316,7 @@
 				B35984F81886E2550080D02F /* ISO8601DateFormatter.m in Sources */,
 				B3A8826A1886062600606019 /* main.m in Sources */,
 				B3E50242188898D800EAE081 /* UWWReading+UWWFormattingAdditions.m in Sources */,
+				B326651C188A054000BBE8D7 /* Reachability.m in Sources */,
 				B35984F41886D5D00080D02F /* UWWReading.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
