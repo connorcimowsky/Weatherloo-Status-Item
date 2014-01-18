@@ -9,6 +9,7 @@
 #import "UWWAppDelegate.h"
 #import "UWWReading.h"
 #import "UWWReading+UWWFormattingAdditions.h"
+#import "Reachability.h"
 
 
 static NSString *const UWWEndpointURL = @"https://api.uwaterloo.ca/v2/weather/current.json";
@@ -17,6 +18,7 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
 
 @interface UWWAppDelegate ()
 
+@property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) NSTimer *downloadTimer;
 @property (nonatomic, strong) NSOperationQueue *downloadQueue;
 @property (nonatomic, strong) UWWReading *currentReading;
@@ -37,10 +39,18 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
         return nil;
     }
     
+    _reachability = [Reachability reachabilityForInternetConnection];
+    [_reachability startNotifier];
+    
     _downloadQueue = [[NSOperationQueue alloc] init];
     _downloadQueue.maxConcurrentOperationCount = 1;
     
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - NSApplicationDelegate
@@ -52,6 +62,8 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
     self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     self.statusItem.highlightMode = YES;
     self.statusItem.menu = self.menu;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
     self.downloadTimer = [NSTimer scheduledTimerWithTimeInterval:UWWUpdateInterval
                                                           target:self
@@ -76,17 +88,22 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
     
     [NSURLConnection sendAsynchronousRequest:request queue:self.downloadQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
+        UWWReading *reading = nil;
+        
         if (!connectionError && data) {
             NSError *jsonError = nil;
             NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&jsonError];
             
             if (!jsonError && responseDictionary) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    self.currentReading = [[UWWReading alloc] initWithResponseDictionary:responseDictionary];
-                    [self updateStatusItem];
-                });
+                reading = [[UWWReading alloc] initWithResponseDictionary:responseDictionary];
             }
         }
+        
+        self.currentReading = reading;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateStatusItem];
+        });
         
     }];
 }
@@ -114,11 +131,16 @@ static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
         [self.menu addItemWithTitle:conditionString action:NULL keyEquivalent:@""];
     }
     
-    if (formattedWeatherConditionStrings) {
+    if ([formattedWeatherConditionStrings count]) {
         [self.menu addItem:[NSMenuItem separatorItem]];
     }
     
     [self.menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
+}
+
+- (void)reachabilityChanged:(NSNotification *)notification
+{
+    [self requestCurrentReading];
 }
 
 - (void)quitPressed
