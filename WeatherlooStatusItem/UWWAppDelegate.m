@@ -13,7 +13,7 @@
 
 
 static NSString *const UWWEndpointURL = @"https://api.uwaterloo.ca/v2/weather/current.json";
-static const NSTimeInterval UWWUpdateInterval = 5.0 * 60.0;
+static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
 
 
 @interface UWWAppDelegate ()
