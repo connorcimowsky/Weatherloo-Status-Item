@@ -97,8 +97,8 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
             if (!jsonError && responseDictionary) {
                 reading = [[UWWReading alloc] initWithResponseDictionary:responseDictionary];
             } else {
-				NSLog(@"JSON deserialization error: %@", jsonError);
-			}
+                NSLog(@"JSON deserialization error: %@", [jsonError localizedDescription]);
+            }
         }
         
         self.currentReading = reading;
@@ -138,8 +138,8 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
     }
     
     [self.menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
-	
-	[self.menu update];
+    
+    [self.menu update];
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification
