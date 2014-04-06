@@ -20,7 +20,7 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
 
 @property (nonatomic, strong) Reachability *reachability;
 @property (nonatomic, strong) NSTimer *downloadTimer;
-@property (nonatomic, strong) NSOperationQueue *downloadQueue;
+@property (nonatomic, strong) NSOperationQueue *processingQueue;
 @property (nonatomic, strong) UWWReading *currentReading;
 @property (nonatomic, strong) NSStatusItem *statusItem;
 @property (nonatomic, strong) NSMenu *menu;
@@ -42,8 +42,8 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
     _reachability = [Reachability reachabilityForInternetConnection];
     [_reachability startNotifier];
     
-    _downloadQueue = [[NSOperationQueue alloc] init];
-    _downloadQueue.maxConcurrentOperationCount = 1;
+    _processingQueue = [[NSOperationQueue alloc] init];
+    _processingQueue.maxConcurrentOperationCount = 1;
     
     return self;
 }
@@ -86,7 +86,7 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
     NSURL *endpointURL = [NSURL URLWithString:UWWEndpointURL];
     NSURLRequest *request = [NSURLRequest requestWithURL:endpointURL cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10.0];
     
-    [NSURLConnection sendAsynchronousRequest:request queue:self.downloadQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    [NSURLConnection sendAsynchronousRequest:request queue:self.processingQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
         UWWReading *reading = nil;
         
