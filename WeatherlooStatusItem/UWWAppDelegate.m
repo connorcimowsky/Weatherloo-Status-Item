@@ -138,6 +138,8 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
     }
     
     [self.menu addItemWithTitle:@"Quit" action:@selector(quitPressed) keyEquivalent:@""];
+	
+	[self.menu update];
 }
 
 - (void)reachabilityChanged:(NSNotification *)notification
