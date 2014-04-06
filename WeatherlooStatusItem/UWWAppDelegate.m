@@ -96,7 +96,9 @@ static const NSTimeInterval UWWUpdateInterval = 3.0 * 60.0;
             
             if (!jsonError && responseDictionary) {
                 reading = [[UWWReading alloc] initWithResponseDictionary:responseDictionary];
-            }
+            } else {
+				NSLog(@"JSON deserialization error: %@", jsonError);
+			}
         }
         
         self.currentReading = reading;
